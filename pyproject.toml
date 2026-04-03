@@ -59,10 +59,10 @@ exclude = ["nhge.venv*", "venv*", "build*", "dist*", "tests*", "docs*"]
 nhge = ["py.typed"]
 
 # ====================== SEHEMU MUHIMU YA VERSION ======================
+
 [tool.setuptools_scm]
-# 'post-release' inahakikisha kuwa kama huna tag mpya, haiongezi '.dev0' inayozingua PyPI
-version_scheme = "post-release" 
-# 'no-local-version' inafuta yale mambo ya +g889227830 (commit hash)
+# Hii itazuia kuongeza namba yoyote baada ya Tag
+version_scheme = "no-guess-dev"
 local_scheme = "no-local-version"
 write_to = "nhge/_version.py"
 
