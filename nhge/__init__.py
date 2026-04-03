@@ -9,10 +9,17 @@ Quick start:
     from nhge import NHGETokenizer, NHGETrainer, NHGEInference
 """
 
-__version__ = "0.1.0"
-__author__ = "NHGE Project"
+# ====================== AUTO VERSION SUPPORT ======================
+# This works together with setuptools_scm in pyproject.toml
+try:
+    from ._version import version as __version__
+except ImportError:
+    __version__ = "0.1.3"   # fallback when _version.py is not generated yet
+
+__author__ = "NHGE Project Team , Hekima A. Mwala & MWALA_LEARN TEAM"
 __license__ = "MIT"
 
+# ====================== IMPORTS ======================
 from nhge.nhge_model import (
     NHGE,
     NHGEBlock,
@@ -25,11 +32,10 @@ from nhge.nhge_model import (
 )
 
 from nhge.nhge_tokenizer import NHGETokenizer
-
 from nhge.nhge_trainer import NHGETrainer, TokenDataset, WarmupCosineScheduler
-
 from nhge.nhge_inference import NHGEInference
 
+# ====================== PUBLIC API ======================
 __all__ = [
     # Model
     "NHGE",
@@ -49,3 +55,14 @@ __all__ = [
     # Inference
     "NHGEInference",
 ]
+
+# Optional helper function
+def help():
+    """Print quick help for the NHGE package."""
+    print(__doc__)
+    print(f"\nVersion : {__version__}")
+    print(f"Author  : {__author__}")
+    print(f"License : {__license__}")
+    print("\nCLI commands:")
+    print("   python -m nhge --version")
+    print("   python -m nhge --info")

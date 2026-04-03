@@ -1,18 +1,24 @@
 Metadata-Version: 2.4
 Name: nhge
-Version: 0.1.2
+Version: 0.1.2.post0
 Summary: Neuro-Harmonic Graph Engine — iterative harmonic resonance ML architecture
-Author: NHGE Project Team, Hekima A. Mwala , Mwala_Learn Team
+Author: NHGE Project Team & MWALA_LEARN TEAM
+Author-email: "Hekima A. Mwala" <hekimamwala@example.com>
 License: MIT
 Project-URL: Homepage, https://github.com/mwala400/nhge
 Project-URL: Repository, https://github.com/mwala400/nhge
 Project-URL: Issues, https://github.com/mwala400/nhge/issues
-Keywords: machine learning,deep learning,graph neural network,harmonic,NHGE
-Classifier: Development Status :: 3 - Alpha
+Project-URL: Documentation, https://github.com/mwala400/nhge#readme
+Keywords: machine-learning,deep-learning,graph-neural-network,harmonic,nhge,ai
+Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Science/Research
 Classifier: Intended Audience :: Developers
 Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
 Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
 Requires-Python: >=3.9
 Description-Content-Type: text/markdown
@@ -23,6 +29,8 @@ Requires-Dist: pytest>=7.0; extra == "dev"
 Requires-Dist: pytest-cov; extra == "dev"
 Requires-Dist: black; extra == "dev"
 Requires-Dist: ruff; extra == "dev"
+Requires-Dist: twine; extra == "dev"
+Requires-Dist: build; extra == "dev"
 
 # Neuro-Harmonic Graph Engine (NHGE)
 #IDEA INITIATED BY H.A.Mwala (Full name HEKIMA A. MWALA)
