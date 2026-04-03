@@ -1,4 +1,3 @@
-Hizi ndizo faili zote zilizosasishwa. Muundo wa mradi wako sasa unapaswa kuwa hivi:
 nhge-model/
 ├── pyproject.toml          ← packaging config
 ├── README.md
@@ -21,12 +20,10 @@ bashcd nhge-model
 git init
 git add .
 git commit -m "Initial release: NHGE v0.1.0"
-git remote add origin https://github.com/your-username/nhge.git
+git remote add origin https://github.com/mwala400/nhge.git
 git push -u origin main
 4. Publish PyPI (watu wote duniani waweze pip install nhge):
 bashpip install build twine
 python -m build
 twine upload dist/*
 
-f336dd52383de6e8
-Kumbuka kubadilisha your-username katika pyproject.toml na URL yako halisi ya GitHub kabla ya push.  init  PY DownloadPyprojectTOML DownloadNhge trainerPY DownloadNhge inferencePY DownloadDemoPY DownloadDownload all
