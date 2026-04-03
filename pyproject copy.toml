@@ -1,10 +1,10 @@
 [build-system]
-requires = ["setuptools>=61.0", "wheel"]
+requires = ["setuptools>=42", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "nhge"
-version = "0.1.1"
+version = "0.1.0"
 description = "Neuro-Harmonic Graph Engine — iterative harmonic resonance ML architecture"
 readme = "README.md"
 license = { text = "MIT" }
@@ -12,7 +12,13 @@ authors = [
   { name = "NHGE Project" }
 ]
 keywords = [
-  "machine learning", "deep learning", "graph neural network", "harmonic", "NHGE"
+  "machine learning",
+  "deep learning",
+  "graph neural network",
+  "harmonic",
+  "transformer alternative",
+  "NLP",
+  "NHGE",
 ]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -20,12 +26,13 @@ classifiers = [
   "Intended Audience :: Developers",
   "License :: OSI Approved :: MIT License",
   "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
-
-# NO LIMITS: Works on any Python 3 version from 3.9 upwards
 requires-python = ">=3.9"
-
 dependencies = [
   "torch>=2.0.0",
   "numpy>=1.24.0",
@@ -47,14 +54,13 @@ Issues = "https://github.com/mwala400/nhge/issues"
 [tool.setuptools.packages.find]
 where = ["."]
 include = ["nhge"]
-exclude = ["nhge.venv*", "venv*", "build*", "dist*", "tests*"]
-
+exclude = ["nhge.venv*", "venv*", "build*", "dist*"]
 [tool.setuptools.package-data]
 nhge = ["py.typed"]
 
 [tool.black]
 line-length = 100
-target-version = ["py39", "py310", "py311", "py312"]
+target-version = ["py39", "py310", "py311"]
 
 [tool.ruff]
 line-length = 100
