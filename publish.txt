@@ -1,0 +1,30 @@
+Hizi ndizo faili zote zilizosasishwa. Muundo wa mradi wako sasa unapaswa kuwa hivi:
+nhge-model/
+├── pyproject.toml          ← packaging config
+├── README.md
+└── nhge/
+    ├── __init__.py         ← package entry point
+    ├── nhge_model.py
+    ├── nhge_tokenizer.py
+    ├── nhge_trainer.py
+    ├── nhge_inference.py
+    ├── demo.py
+    └── requirements.txt
+Hatua za kufuata:
+1. Install locally (editable mode):
+bashcd nhge-model
+pip install -e .
+2. Baada ya install, unaweza kutumia kama package yoyote:
+pythonfrom nhge import nhge_small, NHGETokenizer, NHGEInference
+3. Pakia GitHub — tengeneza repo mpya kisha:
+bashcd nhge-model
+git init
+git add .
+git commit -m "Initial release: NHGE v0.1.0"
+git remote add origin https://github.com/your-username/nhge.git
+git push -u origin main
+4. Publish PyPI (watu wote duniani waweze pip install nhge):
+bashpip install build twine
+python -m build
+twine upload dist/*
+Kumbuka kubadilisha your-username katika pyproject.toml na URL yako halisi ya GitHub kabla ya push.  init  PY DownloadPyprojectTOML DownloadNhge trainerPY DownloadNhge inferencePY DownloadDemoPY DownloadDownload all

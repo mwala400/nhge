@@ -1,0 +1,5 @@
+# NHGE — Neuro-Harmonic Graph Engine
+# Install with:  pip install -r requirements.txt
+
+torch>=2.0.0
+numpy>=1.24.0

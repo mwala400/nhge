@@ -1,0 +1,170 @@
+# Neuro-Harmonic Graph Engine (NHGE)
+#IDEA INITIATED BY SIR H.A.Mwala (Full name HEKIMA A. MWALA)
+#TANZANIAN
+A novel machine learning architecture that replaces transformer parallelism
+with **iterative harmonic resonance** over a dynamic graph structure.
+
+---
+
+## Key Idea
+
+Transformers compute attention in one parallel pass over all tokens simultaneously.
+**NHGE iterates** — tokens are graph nodes that resonate with each other, updating
+their states step by step until the graph reaches harmonic convergence.
+
+| Property            | Transformer                  | NHGE                              |
+|---------------------|------------------------------|-----------------------------------|
+| Processing          | Parallel attention           | Iterative harmonic resonance      |
+| Depth               | Fixed layers                 | Dynamic (stops at convergence)    |
+| Edge weights        | Attention scores             | Similarity × phase coherence      |
+| Memory              | O(N²) attention matrix       | O(N²) but iterative, not stacked  |
+| Simple inputs       | Same cost as complex         | Converges faster → cheaper        |
+
+---
+
+## Architecture
+
+```
+Input tokens
+     ↓
+[Embedding + positional + phase initialisation]
+     ↓
+┌─────────────────────────────────────────┐
+│  Harmonic iteration loop (max T steps)  │
+│                                         │
+│  HarmonicEdgeLayer                      │
+│    edge_w = softmax(Q·K/√d) × cos(Δθ)  │
+│                                         │
+│  HarmonicNodeUpdate                     │
+│    h_v ← h_v + FFN(h_v + Σ w·h_u)      │
+│                                         │
+│  PhaseUpdate                            │
+│    θ ← θ + α·tanh(W·h)·π               │
+│                                         │
+│  Convergence: ||h_t − h_{t−1}|| < ε    │
+└─────────────────────────────────────────┘
+     ↓
+[Graph readout: mean / CLS / attention pool]
+     ↓
+Output logits
+```
+
+---
+
+## Files
+
+| File                 | Purpose                                         |
+|----------------------|-------------------------------------------------|
+| `nhge_model.py`      | Core NHGE architecture (all layers + full model)|
+| `nhge_tokenizer.py`  | Word / char / subword tokenizer                 |
+| `nhge_trainer.py`    | Training engine with warmup LR, AMP, checkpoints|
+| `nhge_inference.py`  | Generation, classification, embeddings          |
+| `demo.py`            | Runnable end-to-end demo (no GPU needed)        |
+
+---
+
+## Quick start
+
+```python
+from nhge_model     import nhge_small
+from nhge_tokenizer import NHGETokenizer
+from nhge_inference import NHGEInference
+
+# 1. Build tokenizer
+tok = NHGETokenizer(mode="word")
+tok.build_vocab(your_texts, min_freq=2)
+
+# 2. Build model
+model = nhge_small(vocab_size=tok.vocab_size, num_classes=2)
+
+# 3. Inference
+inf = NHGEInference(model, tok, device="cuda")
+results = inf.classify(["Your input text here"], label_names=["neg", "pos"])
+
+# 4. Generate
+text = inf.generate("The harmonic graph", max_new_tokens=50)
+```
+
+---
+
+## Training
+
+```python
+from nhge_trainer import NHGETrainer, TokenDataset
+from torch.utils.data import DataLoader
+
+dataset = TokenDataset(encoded_tokens, labels=class_labels, max_len=128)
+loader  = DataLoader(dataset, batch_size=32, shuffle=True)
+
+trainer = NHGETrainer(model, loader, val_loader=val_loader,
+                      task="cls", lr=3e-4, device="cuda")
+history = trainer.train(epochs=20)
+```
+
+---
+
+## Model sizes
+
+| Name          | d_model | n_heads | n_layers | max_iter | ~Params |
+|---------------|---------|---------|----------|----------|---------|
+| `nhge_small`  | 128     | 4       | 2        | 6        | ~3M     |
+| `nhge_base`   | 512     | 8       | 4        | 8        | ~85M    |
+| `nhge_large`  | 1024    | 16      | 6        | 10       | ~340M   |
+
+---
+
+## Requirements
+
+```
+torch >= 2.0
+```
+
+No other dependencies required for core functionality.
+
+---
+
+## Run the demo
+
+```bash
+python demo.py
+```
+
+---
+
+## Theory
+
+The harmonic edge weight combines two signals:
+1. **Semantic similarity** — scaled dot product of Q and K projections
+2. **Phase coherence** — cos(θ_i − θ_j) between learned phase angles
+
+Nodes in phase amplify each other's signals. Out-of-phase nodes cancel.
+This mimics oscillatory dynamics in biological neural networks, where
+synchronised firing encodes binding of related concepts.
+
+The phase angles are updated each iteration via a damped gradient:
+```
+θ ← θ + α · tanh(W·h) · π
+```
+This allows the network to "tune" its resonance frequencies as information
+propagates — a form of learned synchronisation.
+
+---
+
+## Licence
+
+MIT — use freely, extend openly, credit the NHGE project.
+
+
+MIT License
+
+Copyright (c) 2026 H.A. Mwala
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
