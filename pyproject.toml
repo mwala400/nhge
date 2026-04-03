@@ -47,14 +47,14 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/your-username/nhge"
-Repository = "https://github.com/your-username/nhge"
-Issues = "https://github.com/your-username/nhge/issues"
+Homepage = "https://github.com/mwala400/nhge"
+Repository = "https://github.com/mwala400/nhge"
+Issues = "https://github.com/mwala400/nhge/issues"
 
 [tool.setuptools.packages.find]
 where = ["."]
-include = ["nhge*"]
-
+include = ["nhge"]
+exclude = ["nhge.venv*", "venv*", "build*", "dist*"]
 [tool.setuptools.package-data]
 nhge = ["py.typed"]
 

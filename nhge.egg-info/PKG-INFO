@@ -4,9 +4,9 @@ Version: 0.1.0
 Summary: Neuro-Harmonic Graph Engine — iterative harmonic resonance ML architecture
 Author: NHGE Project
 License: MIT
-Project-URL: Homepage, https://github.com/your-username/nhge
-Project-URL: Repository, https://github.com/your-username/nhge
-Project-URL: Issues, https://github.com/your-username/nhge/issues
+Project-URL: Homepage, https://github.com/mwala400/nhge
+Project-URL: Repository, https://github.com/mwala400/nhge
+Project-URL: Issues, https://github.com/mwala400/nhge/issues
 Keywords: machine learning,deep learning,graph neural network,harmonic,transformer alternative,NLP,NHGE
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Science/Research
