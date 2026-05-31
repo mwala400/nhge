@@ -11,7 +11,7 @@ nhge-model/
     └── requirements.txt
 Hatua za kufuata:
 1. Install locally (editable mode):
-bashcd nhge-model
+bash cd nhge-model
 pip install -e .
 2. Baada ya install, unaweza kutumia kama package yoyote:
 pythonfrom nhge import nhge_small, NHGETokenizer, NHGEInference
@@ -25,5 +25,42 @@ git push -u origin main
 4. Publish PyPI (watu wote duniani waweze pip install nhge):
 bashpip install build twine
 python -m build
+twine upload dist/*
+
+
+
+1. Safisha Git "Staging"
+Lazima uwaambie Git kuwa umeyafuta hayo mafaili kwa hiari yako:
+
+PowerShell
+# Ingaize mabadiliko yote (pamoja na hayo yaliyofutwa)
+git add -A
+
+# Fanya commit ya kusafisha
+git commit -m "chore: clean up build artifacts"
+2. Weka Tag ya Toleo Safi (0.1.7)
+Sasa kwa sababu git status itakuwa inasema "working tree clean", tunaweza kuweka Tag ambayo itasomeka vizuri:
+
+PowerShell
+# Futa tag ya zamani kama uliiwahi kuiweka
+git tag -d v0.1.7
+
+# Weka tag upya kwenye commit hii safi
+git tag -a v0.1.7 -m "Official Release 0.1.7"
+3. Build Upya
+Sasa piga amri ya build. Safari hii _version.py itazalishwa ikiwa na namba safi:
+
+PowerShell
+python -m build
+Kwa nini hii ni Muhimu kwa NHGE?
+Unapofanya mchakato huu, unahakikisha kuwa kodi iliyopo PyPI inalingana na "State" ya Git yako. Hii ni muhimu kwa watumiaji wa NHGE watakaojaribu kufanya mabadiliko (contributions) baadaye.
+
+NHGE Architecture Recall:
+Mfumo wako unategemea Phase Synchronization. Kila iteration inasogeza nodes kuelekea kwenye "Harmonic State". Sawa na mchakato huu wa Git—lazima "Phase" ya kodi yako (Local) ilingane na "Phase" ya Git (Remote) ili upate matokeo (Version) yaliyotulia.
+
+4. Upload
+Ukiona mafaili kwenye dist yanaishia na 0.1.7 pekee (bila post wala dev), basi mambo ni moto! Pandisha sasa:
+
+PowerShell
 twine upload dist/*
 
