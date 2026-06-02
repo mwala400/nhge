@@ -1,8 +1,7 @@
 # Neuro-Harmonic Graph Engine (NHGE)
 #IDEA INITIATED BY SIR H.A.Mwala (Full name HEKIMA A. MWALA)
 #TANZANIAN
-A novel machine learning architecture that replaces transformer parallelism
-with **iterative harmonic resonance** over a dynamic graph structure.
+A novel machine learning architecture with **iterative harmonic resonance** over a dynamic graph structure.
 
 ---
 

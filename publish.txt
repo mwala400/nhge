@@ -23,7 +23,7 @@ git commit -m "Initial release: NHGE v0.1.0"
 git remote add origin https://github.com/mwala400/nhge.git
 git push -u origin main
 4. Publish PyPI (watu wote duniani waweze pip install nhge):
-bashpip install build twine
+bash pip install build twine
 python -m build
 twine upload dist/*
 
